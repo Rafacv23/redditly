@@ -13,8 +13,6 @@ export default async function Content() {
 
   const redditPosts: RedditPost[] = data.data.children
 
-  console.log(redditPosts)
-
   return (
     <div className="flex-1 p-4">
       <ul className="space-y-4">
