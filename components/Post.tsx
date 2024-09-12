@@ -1,3 +1,5 @@
+import { ChevronDown, ChevronUp, MessageSquare } from "lucide-react"
+
 export interface PostData {
   approved_at_utc: number | null
   subreddit: string
@@ -29,19 +31,40 @@ export interface LinkFlairRichtext {
 }
 
 export default async function Post({ post }: { post: PostData }) {
-  console.log(post.title)
   return (
     <div className="card bg-base-100 shadow-xl">
       <div className="card-body">
-        <small>{post.author}</small>
+        <small>
+          <a
+            href={`https://www.reddit.com/user/${post.author}/`}
+            title={post.author}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-primary hover:transition-colors"
+          >
+            u/{post.author}
+          </a>
+        </small>
         <h2 className="card-title">
-          {post.title}
+          <a
+            href={post.url}
+            title={`${post.title}`}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-primary hover:transition-colors"
+          >
+            {post.title}
+          </a>
           <div className="badge badge-secondary">NEW</div>
         </h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <p>{post.selftext.substring(0, 400)}</p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+          <div className="badge badge-outline flex items-center p-4 gap-2 justify-center">
+            <MessageSquare /> {post.num_comments}
+          </div>
+          <div className="badge badge-outline flex items-center p-4 gap-2 justify-center">
+            <ChevronUp /> {post.ups} <ChevronDown />
+          </div>
         </div>
       </div>
     </div>
