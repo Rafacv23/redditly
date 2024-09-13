@@ -47,7 +47,7 @@ export default async function Post({ post }: { post: PostData }) {
         </small>
         <h2 className="card-title">
           <a
-            href={post.url}
+            href={`https://www.reddit.com${post.permalink}`}
             title={`${post.title}`}
             target="_blank"
             rel="noreferrer"
