@@ -4,8 +4,8 @@ export interface RedditPost {
   data: PostData
 }
 
-export default async function Content() {
-  const subreddit = `f1manager`
+export default async function Content({ subreddit }: { subreddit: string }) {
+  //const subreddit = `f1manager`
 
   const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`)
 
