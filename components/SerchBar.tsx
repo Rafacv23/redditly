@@ -7,17 +7,24 @@ import { useState } from "react"
 export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState<string>("")
   const router = useRouter()
+  const modal = document.getElementById("my_modal_3") as HTMLDialogElement
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault()
+
+    // Cerrar el modal antes de redirigir
+    if (modal) modal.close()
+
+    // Redirigir a la página dinámica
     router.push(`/r/${searchTerm}`)
+    setSearchTerm("")
   }
 
   return (
     <div className="form-control">
       <button
         className="btn btn-outline btn-primary"
-        onClick={() => document.getElementById("my_modal_3").showModal()}
+        onClick={() => modal.showModal()}
       >
         <Search />
         Search...
