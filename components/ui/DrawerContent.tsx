@@ -11,9 +11,7 @@ export default function DrawerContent() {
   const addFavSubreddit = useRedditStore((state) => state.addFavSubreddit)
   const params = useParams<{ subreddit: string }>()
   const subreddit = params.subreddit
-  const [activeAccordion, setActiveAccordion] = useState<string | null>(
-    "recently-visited"
-  )
+  const [activeAccordion, setActiveAccordion] = useState<string | null>(null)
 
   const handleReload = () => {
     window.location.reload()
@@ -44,7 +42,6 @@ export default function DrawerContent() {
         <input
           type="radio"
           name="my-accordion-3"
-          defaultChecked
           id="recently-visited"
           onChange={() => handleAccordionToggle("recently-visited")}
         />
