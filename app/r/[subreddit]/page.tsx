@@ -5,10 +5,5 @@ export default async function Subreddit({
 }: {
   params: { subreddit: string }
 }) {
-  return (
-    <div>
-      <h2>{params.subreddit}</h2>
-      <Content subreddit={params.subreddit} />
-    </div>
-  )
+  return <Content subreddit={params.subreddit} />
 }
