@@ -1,4 +1,5 @@
 import Post, { PostData } from "@/components/Post"
+import { notFound } from "next/navigation"
 
 export interface RedditPost {
   data: PostData
@@ -17,7 +18,7 @@ export default async function Content({ subreddit }: { subreddit: string }) {
     redditPosts = data.data.children
   } catch (error) {
     console.error("Error fetching data:", error)
-    return <div>Error fetching data</div>
+    notFound()
   }
 
   return (
