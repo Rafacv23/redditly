@@ -1,12 +1,6 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
-interface Subreddit {
-  id: string
-  title: string
-  url: string
-}
-
 export interface Post {
   id: string
   title: string
@@ -15,11 +9,11 @@ export interface Post {
 }
 
 interface RedditStore {
-  favSubreddits: Subreddit[]
+  favSubreddits: string[]
   favPosts: Post[]
-  recentSubreddits: Subreddit[]
-  addFavSubreddit: (subreddit: Subreddit) => void
-  addRecentSubreddit: (subreddit: Subreddit) => void
+  recentSubreddits: string[]
+  addFavSubreddit: (subreddit: string) => void
+  addRecentSubreddit: (subreddit: string) => void
   addFavPost: (post: Post) => void
   reset: () => void
 }
