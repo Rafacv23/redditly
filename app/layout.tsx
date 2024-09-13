@@ -1,6 +1,9 @@
 import type { Metadata } from "next"
 import { Outfit } from "next/font/google"
 import "./globals.css"
+import Header from "@/components/Header"
+import Nav from "@/components/Nav"
+import Footer from "@/components/Footer"
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -19,7 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} font-sans`}>{children}</body>
+      <body className={`${outfit.variable} font-sans`}>
+        <Header />
+        <div className="flex flex-1">
+          <Nav />
+          {children}
+        </div>
+        <Footer />
+      </body>
     </html>
   )
 }
