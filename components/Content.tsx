@@ -6,12 +6,19 @@ export interface RedditPost {
 
 export default async function Content({ subreddit }: { subreddit: string }) {
   //const subreddit = `f1manager`
+  let redditPosts: RedditPost[] = []
 
-  const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`)
-
-  const data = await res.json()
-
-  const redditPosts: RedditPost[] = data.data.children
+  try {
+    const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`)
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`)
+    }
+    const data = await res.json()
+    redditPosts = data.data.children
+  } catch (error) {
+    console.error("Error fetching data:", error)
+    return <div>Error fetching data</div>
+  }
 
   return (
     <div className="flex-1 lg:p-4 w-full">
