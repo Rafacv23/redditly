@@ -1,4 +1,5 @@
 import SearchBar from "@/components/SerchBar"
+import Drawer from "@/components/ui/Drawer"
 
 export default function Header() {
   return (
@@ -6,6 +7,7 @@ export default function Header() {
       <div className="flex-1">
         <a className="btn btn-ghost text-xl">Reddit Client</a>
       </div>
+      <Drawer display="mobile" />
       <div className="flex-none gap-2">
         <SearchBar />
         <div className="dropdown dropdown-end">
