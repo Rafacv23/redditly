@@ -1,4 +1,5 @@
 import { ChevronDown, ChevronUp, MessageSquare } from "lucide-react"
+import LikeBtn from "@/components/LikeBtn"
 
 export interface PostData {
   approved_at_utc: number | null
@@ -65,6 +66,7 @@ export default async function Post({ post }: { post: PostData }) {
           <div className="badge badge-outline flex items-center p-4 gap-2 justify-center">
             <ChevronUp /> {post.ups} <ChevronDown />
           </div>
+          <LikeBtn post={post} />
         </div>
       </div>
     </div>
