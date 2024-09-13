@@ -1,7 +1,19 @@
+"use client"
+
+import { useRedditStore } from "@/store/store"
+import { useSearchParams } from "next/navigation"
+
 export default function DrawerContent() {
+  const favPosts = useRedditStore((state) => state.favPosts)
+  const searchParams = useSearchParams()
+
+  const subreddit = searchParams.get("subreddit")
+
+  console.log(subreddit)
+
   return (
     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-      Subreddits
+      {subreddit}
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" defaultChecked />
         <div className="collapse-title text-xl font-medium">
@@ -22,7 +34,19 @@ export default function DrawerContent() {
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">Fav Posts</div>
         <div className="collapse-content">
-          <p>hello</p>
+          <ul>
+            {favPosts.map((post) => (
+              <li key={post.id}>
+                <a
+                  href={`https://reddit.com${post.url}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {post.title}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </ul>
