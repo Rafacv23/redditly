@@ -14,7 +14,7 @@ export default async function Content() {
   const redditPosts: RedditPost[] = data.data.children
 
   return (
-    <div className="flex-1 p-4">
+    <div className="flex-1 lg:p-4">
       <ul className="space-y-4">
         {redditPosts.map((post) => (
           <Post key={post.data.id} post={post.data} />
