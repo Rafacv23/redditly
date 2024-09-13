@@ -5,9 +5,9 @@ export default function Header() {
   return (
     <div className="navbar bg-base-100 p-4 sticky top-0  z-50">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">Reddit Client</a>
+        <h1 className="hidden lg:btn lg:btn-ghost lg:text-xl">Reddit Client</h1>
+        <Drawer display="mobile" />
       </div>
-      <Drawer display="mobile" />
       <div className="flex-none gap-2">
         <SearchBar />
         <div className="dropdown dropdown-end">
