@@ -32,7 +32,7 @@ export interface LinkFlairRichtext {
 
 export default async function Post({ post }: { post: PostData }) {
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl w-full lg-auto">
       <div className="card-body">
         <small>
           <a
