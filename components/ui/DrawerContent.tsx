@@ -1,19 +1,15 @@
 "use client"
 
 import { useRedditStore } from "@/store/store"
-import { useSearchParams } from "next/navigation"
+import { useParams } from "next/navigation"
 
 export default function DrawerContent() {
   const favPosts = useRedditStore((state) => state.favPosts)
-  const searchParams = useSearchParams()
-
-  const subreddit = searchParams.get("subreddit")
-
-  console.log(subreddit)
+  const params = useParams<{ subreddit: string }>()
 
   return (
     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-      {subreddit}
+      {params.subreddit}
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" defaultChecked />
         <div className="collapse-title text-xl font-medium">
