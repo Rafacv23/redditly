@@ -7,15 +7,17 @@ import { useState } from "react"
 export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState<string>("")
   const router = useRouter()
-  const modal = document.getElementById("my_modal_3") as HTMLDialogElement
 
-  const handleSearchSubmit = async (e) => {
+  const handleSearchSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    // Cerrar el modal antes de redirigir
+    // Find the modal element
+    const modal = document.getElementById("my_modal_3") as HTMLDialogElement
+
+    // Close the modal before redirecting
     if (modal) modal.close()
 
-    // Redirigir a la página dinámica
+    // Redirect to the dynamic page
     router.push(`/r/${searchTerm}`)
     setSearchTerm("")
   }
@@ -24,35 +26,42 @@ export default function SearchBar() {
     <div className="form-control">
       <button
         className="btn btn-outline btn-primary"
-        onClick={() => modal.showModal()}
+        onClick={() => {
+          const modal = document.getElementById(
+            "my_modal_3"
+          ) as HTMLDialogElement
+          if (modal) modal.showModal()
+        }}
       >
         <Search />
         Search...
       </button>
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
-          <form method="dialog">
+          <form method="dialog" className="modal-header">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               esc
             </button>
           </form>
-          <form onSubmit={handleSearchSubmit}>
-            <button>Enviar</button>
+          <form onSubmit={handleSearchSubmit} className="mt-8">
+            <label className="input input-bordered flex items-center gap-2 mt-4">
+              <Search />
+              <input
+                type="text"
+                className="grow"
+                placeholder="What are you looking for?"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </label>
+            <button type="submit" className="btn btn-primary mt-4">
+              Enviar
+            </button>
           </form>
-          <label className="input input-bordered flex items-center gap-2 mt-4">
-            <Search />
-            <input
-              type="text"
-              className="grow"
-              placeholder="What are you looking for?"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </label>
+          <form method="dialog" className="modal-backdrop">
+            <button>close</button>
+          </form>
         </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
       </dialog>
     </div>
   )
