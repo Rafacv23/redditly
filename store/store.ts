@@ -24,12 +24,23 @@ export const useRedditStore = create<RedditStore>()(
       favSubreddits: [],
       favPosts: [],
       recentSubreddits: [],
-      addFavSubreddit: async (subreddit) => {
-        set((state) => ({
-          ...state,
-          favSubreddits: [...state.favSubreddits, subreddit],
-        }))
-      },
+      addFavSubreddit: (subreddit) =>
+        set((state) => {
+          const isFav = state.favSubreddits.includes(subreddit)
+          if (isFav) {
+            // Eliminar si ya está en favoritos
+            return {
+              favSubreddits: state.favSubreddits.filter(
+                (fav) => fav !== subreddit
+              ),
+            }
+          } else {
+            // Agregar si no está en favoritos
+            return {
+              favSubreddits: [...state.favSubreddits, subreddit],
+            }
+          }
+        }),
       addRecentSubreddit: async (subreddit) => {
         set((state) => {
           const updatedRecentSubreddits = [
@@ -47,10 +58,21 @@ export const useRedditStore = create<RedditStore>()(
         })
       },
       addFavPost: async (post) => {
-        set((state) => ({
-          ...state,
-          favPosts: [...state.favPosts, post],
-        }))
+        set((state) => {
+          const isFav = state.favPosts.some((favPost) => favPost.id === post.id)
+          if (isFav) {
+            // Eliminar si ya está en favoritos
+            return {
+              favPosts: state.favPosts.filter((fav) => fav.id !== post.id),
+            }
+          } else {
+            // Agregar si no está en favoritos
+            return {
+              ...state,
+              favPosts: [...state.favPosts, post],
+            }
+          }
+        })
       },
       reset: () =>
         set(() => ({
