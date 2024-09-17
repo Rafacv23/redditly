@@ -1,4 +1,5 @@
 import Post, { PostData } from "@/components/Post"
+import { notFound } from "next/navigation"
 
 export interface RedditPost {
   data: PostData
@@ -11,6 +12,7 @@ export default async function Content({ subreddit }: { subreddit: string }) {
   try {
     const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`)
     if (!res.ok) {
+      notFound()
       throw new Error(`HTTP error! status: ${res.status}`)
     }
     const data = await res.json()
