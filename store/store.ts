@@ -32,9 +32,12 @@ export const useRedditStore = create<RedditStore>()(
       },
       addRecentSubreddit: async (subreddit) => {
         set((state) => {
-          const updatedRecentSubreddits = [subreddit, ...state.recentSubreddits]
-          // Keep only the 5 most recent subreddits
-          if (updatedRecentSubreddits.length > 5) {
+          const updatedRecentSubreddits = [
+            subreddit,
+            ...state.recentSubreddits.filter((sr) => sr !== subreddit),
+          ]
+          // Keep only the 10 most recent subreddits
+          if (updatedRecentSubreddits.length > 10) {
             updatedRecentSubreddits.pop()
           }
           return {

@@ -2,8 +2,9 @@
 
 import { useRedditStore } from "@/store/store"
 import { Heart, RefreshCcw } from "lucide-react"
+import Link from "next/link"
 import { useParams } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function DrawerContent() {
   const favPosts = useRedditStore((state) => state.favPosts)
@@ -12,6 +13,15 @@ export default function DrawerContent() {
   const params = useParams<{ subreddit: string }>()
   const subreddit = params.subreddit
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null)
+  const addRecentSubreddit = useRedditStore((state) => state.addRecentSubreddit)
+  const recentSubreddits = useRedditStore((state) => state.recentSubreddits)
+
+  // Add subreddit to recentSubreddits whenever it changes
+  useEffect(() => {
+    if (subreddit) {
+      addRecentSubreddit(subreddit)
+    }
+  }, [subreddit, addRecentSubreddit])
 
   const handleReload = () => {
     window.location.reload()
@@ -56,7 +66,13 @@ export default function DrawerContent() {
           </label>
         </div>
         <div className="collapse-content">
-          <p>hello</p>
+          <ul>
+            {recentSubreddits.map((subreddit) => (
+              <li key={subreddit}>
+                <Link href={`/r/${subreddit}`}>{subreddit}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <div className="collapse collapse-plus bg-base-200">
@@ -80,7 +96,7 @@ export default function DrawerContent() {
           <ul>
             {favSubreddits.map((subreddit) => (
               <li key={subreddit}>
-                <a href={`/r/${subreddit}`}>{subreddit}</a>
+                <Link href={`/r/${subreddit}`}>{subreddit}</Link>
               </li>
             ))}
           </ul>
