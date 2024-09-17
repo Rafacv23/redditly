@@ -1,7 +1,7 @@
 "use client"
 
 import { useRedditStore } from "@/store/store"
-import { Heart, RefreshCcw } from "lucide-react"
+import { Heart, HeartOff, RefreshCcw } from "lucide-react"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -41,7 +41,15 @@ export default function DrawerContent() {
         <h3 className="badge badge-outline badge-primary gap-2">{`r/${subreddit}`}</h3>
         <div className="space-x-4 flex mr-2">
           <button onClick={handleFavSubreddit}>
-            <Heart className="hover:text-primary transition-colors" />
+            {favSubreddits.includes(subreddit) ? (
+              <div className="tooltip tooltip-bottom" data-tip="Dislike">
+                <HeartOff className="hover:text-primary transition-colors" />
+              </div>
+            ) : (
+              <div className="tooltip tooltip-bottom" data-tip="Like">
+                <Heart className="hover:text-primary transition-colors" />
+              </div>
+            )}
           </button>
           <button onClick={handleReload}>
             <RefreshCcw className="hover:text-primary transition-colors" />
