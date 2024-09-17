@@ -38,7 +38,7 @@ export default function DrawerContent() {
   return (
     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
       <div className="flex justify-between">
-        <h3 className="badge badge-outline badge-primary gap-2">{subreddit}</h3>
+        <h3 className="badge badge-outline badge-primary gap-2">{`r/${subreddit}`}</h3>
         <div className="space-x-4 flex mr-2">
           <button onClick={handleFavSubreddit}>
             <Heart className="hover:text-primary transition-colors" />
