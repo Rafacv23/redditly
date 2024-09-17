@@ -3,6 +3,7 @@
 import { Search } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import { formatSearchValue } from "@/lib/utils"
 
 export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState<string>("")
@@ -18,8 +19,8 @@ export default function SearchBar() {
     if (modal) modal.close()
 
     // Redirect to the dynamic page
-    router.push(`/r/${searchTerm}`)
     setSearchTerm("")
+    router.push(`/r/${formatSearchValue(searchTerm)}`)
   }
 
   return (
