@@ -1,10 +1,11 @@
+import { SITE_NAME } from "@/site/config"
 import { Github, Heart, Linkedin } from "lucide-react"
 
 export default function Footer() {
   return (
     <footer className="footer footer-center bg-primary text-primary-content p-10">
       <aside>
-        <p className="font-bold">Reddit Client</p>
+        <p className="font-bold">{SITE_NAME}</p>
         <p className="flex items-center gap-2">
           Created with <Heart /> by{" "}
           <a
