@@ -1,5 +1,12 @@
-import { AUTHOR, SITE_NAME } from "@/site/config"
+import {
+  AUTHOR,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  PORTFOLIO_URL,
+  SITE_NAME,
+} from "@/site/config"
 import { Github, Heart, Linkedin } from "lucide-react"
+import Link from "next/link"
 
 export default function Footer() {
   return (
@@ -7,24 +14,30 @@ export default function Footer() {
       <aside>
         <p className="font-bold">{SITE_NAME}</p>
         <p className="flex items-center gap-2">
-          Created with <Heart /> by{" "}
-          <a
-            href="https://www.rafacanosa.dev"
-            target="_blank"
-            title="rafacanosa.dev"
-          >
+          Created with <Heart /> by
+          <Link href={PORTFOLIO_URL} target="_blank" title="rafacanosa.dev">
             {AUTHOR}.
-          </a>
+          </Link>
         </p>
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">
-          <a>
+          <Link
+            href={GITHUB_URL}
+            title="Github Repository"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Github />
-          </a>
-          <a>
+          </Link>
+          <Link
+            href={LINKEDIN_URL}
+            title="Linkedin Profile"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Linkedin />
-          </a>
+          </Link>
         </div>
       </nav>
     </footer>
