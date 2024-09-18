@@ -4,12 +4,12 @@ export default function Drawer({ display }: { display: "desktop" | "mobile" }) {
   return (
     <>
       {display === "mobile" ? (
-        <div className="drawer lg:hidden">
+        <div className="drawer 2xl:hidden">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content col-auto flex flex-col items-center justify-center">
             <label
               htmlFor="my-drawer-2"
-              className="btn btn-primary drawer-button lg:hidden"
+              className="btn btn-primary drawer-button 2xl:hidden"
             >
               Reddit Client
             </label>
@@ -24,7 +24,7 @@ export default function Drawer({ display }: { display: "desktop" | "mobile" }) {
           </div>
         </div>
       ) : (
-        <div className="drawer lg:drawer-open">
+        <div className="drawer 2xl:drawer-open">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content flex flex-col items-center justify-center">
             <label

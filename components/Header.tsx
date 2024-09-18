@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <div className="navbar bg-base-100 p-4 sticky top-0  z-50">
       <div className="flex-1">
-        <h1 className="hidden lg:btn lg:btn-ghost lg:text-xl">
+        <h1 className="hidden 2xl:btn 2xl:btn-ghost 2xl:text-xl">
           <Link href="/" title="Home screen">
             {SITE_NAME}
           </Link>
