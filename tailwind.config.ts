@@ -36,6 +36,25 @@ const config: Config = {
 
           error: "#ff0000",
         },
+        light: {
+          primary: "#FF5733",
+
+          secondary: "#fee2e2",
+
+          accent: "#FF5700",
+
+          neutral: "#0B0C10",
+
+          "base-100": "#F5F5F5",
+
+          info: "#FF5700",
+
+          success: "#00ff00",
+
+          warning: "#00ff00",
+
+          error: "#ff0000",
+        },
       },
     ],
   },
