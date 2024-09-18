@@ -1,4 +1,4 @@
-import { SITE_NAME } from "@/site/config"
+import { AUTHOR, SITE_NAME } from "@/site/config"
 import { Github, Heart, Linkedin } from "lucide-react"
 
 export default function Footer() {
@@ -13,7 +13,7 @@ export default function Footer() {
             target="_blank"
             title="rafacanosa.dev"
           >
-            Rafa Canosa.
+            {AUTHOR}.
           </a>
         </p>
       </aside>
