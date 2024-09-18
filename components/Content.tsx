@@ -1,5 +1,6 @@
 import Post, { PostData } from "@/components/Post"
 import { notFound } from "next/navigation"
+import UpBtn from "@/components/UpBtn"
 
 export interface RedditPost {
   data: PostData
@@ -28,6 +29,7 @@ export default async function Content({ subreddit }: { subreddit: string }) {
           <Post key={post.data.id} post={post.data} />
         ))}
       </ul>
+      <UpBtn />
     </div>
   )
 }
