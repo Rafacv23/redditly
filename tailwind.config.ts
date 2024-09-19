@@ -18,42 +18,26 @@ const config: Config = {
     themes: [
       {
         mytheme: {
-          primary: "#FF5733",
-
-          secondary: "#FF5733",
-
-          accent: "#00ffff",
-
-          neutral: "#B0B4B9",
-
-          "base-100": "#0B0C10",
-
-          info: "#0000ff",
-
-          success: "#00ff00",
-
-          warning: "#00ff00",
-
-          error: "#ff0000",
+          primary: "#FF5700", // Color protagonista
+          secondary: "#FF7043",
+          accent: "#4FC3F7",
+          neutral: "#1E1E1E",
+          "base-100": "#121212", // Fondo oscuro
+          info: "#4DD0E1",
+          success: "#81C784",
+          warning: "#FFB74D",
+          error: "#EF5350",
         },
         light: {
-          primary: "#FF5733",
-
-          secondary: "#fee2e2",
-
-          accent: "#FF5700",
-
-          neutral: "#0B0C10",
-
-          "base-100": "#F5F5F5",
-
-          info: "#FF5700",
-
-          success: "#00ff00",
-
-          warning: "#00ff00",
-
-          error: "#ff0000",
+          primary: "#FF5700", // Color protagonista
+          secondary: "#FFB74D",
+          accent: "#6EC1E4",
+          neutral: "#F4F4F4",
+          "base-100": "#FFFFFF", // Fondo claro
+          info: "#29B6F6",
+          success: "#66BB6A",
+          warning: "#FFA726",
+          error: "#E57373",
         },
       },
     ],
