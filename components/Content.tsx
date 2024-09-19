@@ -23,7 +23,7 @@ export default async function Content({ subreddit }: { subreddit: string }) {
   }
 
   return (
-    <div className="flex-1 lg:p-4 w-full">
+    <div className="flex-1 lg:p-4 w-full bg-base-200">
       <ul className="space-y-4">
         {redditPosts?.map((post) => (
           <Post key={post.data.id} post={post.data} />

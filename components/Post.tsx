@@ -47,7 +47,7 @@ export default async function Post({ post }: { post: PostData }) {
   const link = `https://www.reddit.com${post.permalink}`
 
   return (
-    <div className="card bg-base-100 shadow-xl w-full lg-auto">
+    <div className="card bg-base-100 shadow-xl w-full sm:w-full md:w-3/4 lg:w-auto mx-auto my-4">
       <div className="card-body">
         <PostHeader post={post} link={link} />
         <PostBody post={post} />
