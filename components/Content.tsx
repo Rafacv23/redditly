@@ -11,13 +11,18 @@ export default async function Content({ subreddit }: { subreddit: string }) {
   let redditPosts: RedditPost[] = []
 
   try {
-    const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`)
-    if (!res.ok) {
+    // Llamada a tu API interna en lugar de directamente a Reddit
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SITE_URL}/api/fetch?subreddit=${subreddit}`
+    )
+
+    if (!response.ok) {
       notFound()
-      throw new Error(`HTTP error! status: ${res.status}`)
+      throw new Error(`HTTP error! status: ${response.status}`)
     }
-    const data = await res.json()
-    redditPosts = data.data.children
+
+    const data = await response.json()
+    redditPosts = data
   } catch (error) {
     console.error("Error fetching data:", error)
   }
