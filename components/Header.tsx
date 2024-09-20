@@ -2,7 +2,6 @@ import SearchBar from "@/components/SerchBar"
 import Drawer from "@/components/ui/Drawer"
 import { SITE_NAME } from "@/site/config"
 import Link from "next/link"
-import ThemeToggle from "@/components/ThemeToggle"
 
 export default function Header() {
   return (
@@ -18,7 +17,6 @@ export default function Header() {
       </div>
       <div className="flex-none gap-2">
         <SearchBar />
-        <ThemeToggle />
       </div>
     </div>
   )

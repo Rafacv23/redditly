@@ -28,17 +28,6 @@ const config: Config = {
           warning: "#FFB74D",
           error: "#EF5350",
         },
-        light: {
-          primary: "#FF5700", // Color protagonista
-          secondary: "#FFB74D",
-          accent: "#6EC1E4",
-          neutral: "#F4F4F4",
-          "base-100": "#FFFFFF", // Fondo claro
-          info: "#29B6F6",
-          success: "#66BB6A",
-          warning: "#FFA726",
-          error: "#E57373",
-        },
       },
     ],
   },
