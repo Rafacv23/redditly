@@ -11,7 +11,6 @@ export default async function Content({ subreddit }: { subreddit: string }) {
   let redditPosts: RedditPost[] = []
 
   try {
-    // Llamada a tu API interna en lugar de directamente a Reddit
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_SITE_URL}/api/fetch?subreddit=${subreddit}`
     )
