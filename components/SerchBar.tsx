@@ -74,7 +74,7 @@ export default function SearchBar() {
           {recentSubreddits.length > 0 && (
             <>
               <small className="text-primary">Recently visited</small>
-              <ul className="menu bg-base-200 rounded-box">
+              <ul className="menu bg-base-200 rounded-box mt-2">
                 {recentSubreddits.map((subreddit, index) => (
                   <li key={index}>
                     <Link href={`/r/${subreddit}`} onClick={handleCloseModal}>
