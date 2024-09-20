@@ -5,3 +5,4 @@ export const AUTHOR = "Rafa Canosa"
 export const GITHUB_URL = "https://github.com/Rafacv23/reddit-client"
 export const LINKEDIN_URL = "https://ninjapath.vercel.app/linkedin"
 export const PORTFOLIO_URL = "https://www.rafacanosa.dev"
+export const SITE_URL = `https://redditly.vercel.app`
