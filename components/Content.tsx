@@ -12,7 +12,9 @@ export default async function Content({ subreddit }: { subreddit: string }) {
   let redditPosts: RedditPost[] = []
 
   try {
-    const response = await fetch(`${SITE_URL}/api/fetch?subreddit=${subreddit}`)
+    const response = await fetch(
+      `https://redditly.vercel.app/api/fetch?subreddit=${subreddit}`
+    )
 
     if (!response.ok) {
       notFound()
