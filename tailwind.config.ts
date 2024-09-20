@@ -18,11 +18,11 @@ const config: Config = {
     themes: [
       {
         mytheme: {
-          primary: "#FF5700", // Color protagonista
-          secondary: "#FF7043",
+          primary: "#00FF6F", // Color protagonista
+          secondary: "#17252A",
           accent: "#4FC3F7",
           neutral: "#1E1E1E",
-          "base-100": "#121212", // Fondo oscuro
+          "base-100": "#1E1E24", // Fondo oscuro
           info: "#4DD0E1",
           success: "#81C784",
           warning: "#FFB74D",
