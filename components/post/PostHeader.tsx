@@ -13,16 +13,22 @@ export default function PostHeader({
   return (
     <div className="flex flex-col gap-2 mb-4">
       <small className="flex gap-2">
-        <Link
-          href={`https://www.reddit.com/user/${post.author}/`}
-          title={post.author}
-          target="_blank"
-          rel="noreferrer"
-          className="hover:text-primary hover:transition-colors"
-        >
-          u/{post.author}
-        </Link>
-        <p>Publicado {formatDate(post.created_utc)}</p>
+        <p>
+          Published {formatDate(post.created_utc)} by{" "}
+          {post.author ? (
+            <a
+              href={`https://www.reddit.com/user/${post.author}/`}
+              title={post.author}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-primary hover:transition-colors"
+            >
+              u/{post.author}
+            </a>
+          ) : (
+            "Deleted user"
+          )}
+        </p>
       </small>
       <div>
         {post.over_18 && <span className="badge bg-red-600">NSFW</span>}
