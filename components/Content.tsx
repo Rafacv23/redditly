@@ -1,7 +1,6 @@
 import Post, { PostData } from "@/components/Post"
 import { notFound } from "next/navigation"
 import UpBtn from "@/components/UpBtn"
-import { SITE_URL } from "@/site/config"
 
 export interface RedditPost {
   data: PostData
