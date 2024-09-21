@@ -2,6 +2,8 @@
 
 import { NextResponse } from "next/server"
 
+export const revalidate = 60
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const subreddit = searchParams.get("subreddit")
