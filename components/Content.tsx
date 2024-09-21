@@ -1,5 +1,6 @@
 import Post, { PostData } from "@/components/Post"
 import UpBtn from "@/components/UpBtn"
+import { notFound } from "next/navigation"
 
 export interface RedditPost {
   data: PostData
@@ -15,7 +16,7 @@ export default async function Content({ subreddit }: { subreddit: string }) {
     })
 
     if (!response.ok) {
-      //notFound()
+      notFound()
       throw new Error(`HTTP error! status: ${response.status}`)
     }
 
