@@ -3,7 +3,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/api/:path*",
+        source: "/api/:subreddit*",
         headers: [
           {
             key: "Access-Control-Allow-Origin",
