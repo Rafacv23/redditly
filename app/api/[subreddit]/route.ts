@@ -1,5 +1,3 @@
-// app/api/fetch/route.ts
-
 import { NextResponse } from "next/server"
 
 export const revalidate = 60
