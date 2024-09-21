@@ -11,9 +11,12 @@ export default async function Content({ subreddit }: { subreddit: string }) {
   let redditPosts: RedditPost[] = []
 
   try {
-    const response = await fetch(
-      `/api/fetch?subreddit=${subreddit}`
-    )
+    const response = await fetch(`/api/fetch?subreddit=${subreddit}`, {
+      headers: {
+        Accept: "application/json",
+        method: "GET",
+      },
+    })
 
     if (!response.ok) {
       notFound()
