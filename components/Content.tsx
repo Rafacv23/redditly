@@ -17,6 +17,7 @@ export default async function Content({ subreddit }: { subreddit: string }) {
         headers: {
           Accept: "application/json",
           method: "GET",
+          "User-Agent": "RedditlyApp/1.0 (https://redditly.vercel.app)",
         },
       }
     )
