@@ -10,7 +10,7 @@ export default async function Content({ subreddit }: { subreddit: string }) {
   let redditPosts: RedditPost[] = []
 
   try {
-    const response = await fetch(`/api/fetch?subreddit=${subreddit}`, {
+    const response = await fetch(`https://www.reddit.com/r/${subreddit}.json`, {
       next: { revalidate: 60 },
     })
 
