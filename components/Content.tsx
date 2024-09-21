@@ -13,13 +13,7 @@ export default async function Content({ subreddit }: { subreddit: string }) {
   try {
     const response = await fetch(
       `${SITE_URL}/api/fetch?subreddit=${subreddit}`,
-      {
-        headers: {
-          Accept: "application/json",
-          method: "GET",
-          "User-Agent": "RedditlyApp/1.0 (https://redditly.vercel.app)",
-        },
-      }
+      { next: { revalidate: 60 } }
     )
 
     if (!response.ok) {
