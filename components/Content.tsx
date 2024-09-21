@@ -1,5 +1,4 @@
 import Post, { PostData } from "@/components/Post"
-import { notFound } from "next/navigation"
 import UpBtn from "@/components/UpBtn"
 import { SITE_URL } from "@/site/config"
 
@@ -23,7 +22,7 @@ export default async function Content({ subreddit }: { subreddit: string }) {
     )
 
     if (!response.ok) {
-      notFound()
+      //notFound()
       throw new Error(`HTTP error! status: ${response.status}`)
     }
 
