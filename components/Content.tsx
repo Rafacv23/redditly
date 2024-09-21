@@ -12,7 +12,7 @@ export default async function Content({ subreddit }: { subreddit: string }) {
 
   try {
     const response = await fetch(
-      `https://redditly.vercel.app/api/fetch?subreddit=${subreddit}`
+      `/api/fetch?subreddit=${subreddit}`
     )
 
     if (!response.ok) {
