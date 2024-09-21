@@ -1,6 +1,5 @@
 import Post, { PostData } from "@/components/Post"
 import UpBtn from "@/components/UpBtn"
-import { SITE_URL } from "@/site/config"
 
 export interface RedditPost {
   data: PostData
@@ -11,10 +10,9 @@ export default async function Content({ subreddit }: { subreddit: string }) {
   let redditPosts: RedditPost[] = []
 
   try {
-    const response = await fetch(
-      `${SITE_URL}/api/fetch?subreddit=${subreddit}`,
-      { next: { revalidate: 60 } }
-    )
+    const response = await fetch(`/api/fetch?subreddit=${subreddit}`, {
+      next: { revalidate: 60 },
+    })
 
     if (!response.ok) {
       //notFound()
