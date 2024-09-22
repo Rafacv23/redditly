@@ -16,9 +16,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const res = await fetch(
-      `https://api.allorigins.win/get?url=https://www.reddit.com/r/${subreddit}.json`
-    )
+    const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`)
     if (!res.ok) {
       return NextResponse.json(
         { error: "Failed to fetch subreddit" },
