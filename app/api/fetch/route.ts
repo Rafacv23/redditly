@@ -17,6 +17,8 @@ export async function GET(request: Request) {
 
   try {
     const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`)
+    console.log("Reddit API response:", res)
+
     if (!res.ok) {
       return NextResponse.json(
         { error: "Failed to fetch subreddit" },
