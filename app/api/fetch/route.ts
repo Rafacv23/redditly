@@ -17,6 +17,8 @@ export async function GET(request: Request) {
     )
   }
 
+  console.log(process.env.NEXT_PUBLIC_REDDIT_PUBLIC)
+
   const reddit = createRedditClient({
     clientId: process.env.NEXT_PUBLIC_REDDIT_PUBLIC,
     secret: process.env.NEXT_PUBLIC_REDDIT_SECRET,
