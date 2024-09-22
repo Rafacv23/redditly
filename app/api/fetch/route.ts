@@ -6,9 +6,17 @@ import { createRedditClient, SortingMethod } from "reddit-explorer"
 export const revalidate = 60
 
 export async function GET(request: Request) {
+  // Check for environment variables
+  if (!process.env.NEXT_REDDIT_PUBLIC || !process.env.NEXT_REDDIT_SECRET) {
+    return NextResponse.json(
+      { error: "Reddit client credentials are not configured." },
+      { status: 500 }
+    )
+  }
+
   const reddit = createRedditClient({
-    clientId: "dBwNisc9LMsqrl9GQ726Xg",
-    secret: "OpzdSi00EwpJ5GFpBwylHmYidK26gw",
+    clientId: process.env.NEXT_REDDIT_PUBLIC,
+    secret: process.env.NEXT_REDDIT_SECRET,
   })
 
   const { searchParams } = new URL(request.url)
@@ -22,29 +30,14 @@ export async function GET(request: Request) {
   }
 
   try {
-    const data = await reddit
-      .getSubreddit({
-        name: subreddit,
-        sortMethod: SortingMethod.Hot,
-      })
-      .then()
-
-    // const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`, {
-    //   headers: {
-    //     "User-Agent": "redditly/1.0.0 by rafacv23",
-    //   },
-    // })
-    // console.log("Reddit API response:", res)
-
-    // if (!res.ok) {
-    //   return NextResponse.json(
-    //     { error: "Failed to fetch subreddit" },
-    //     { status: res.status }
-    //   )
-    // }
+    const data = await reddit.getSubreddit({
+      name: subreddit,
+      sortMethod: SortingMethod.Hot,
+    })
 
     return NextResponse.json(data.data.children, { status: 200 })
   } catch (error) {
+    console.error("Error fetching data:", error) // Log the error for debugging
     return NextResponse.json({ error: "Error fetching data" }, { status: 500 })
   }
 }
