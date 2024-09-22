@@ -16,7 +16,11 @@ export async function GET(request: Request) {
   }
 
   try {
-    const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`)
+    const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`, {
+      headers: {
+        "User-Agent": "redditly/1.0.0 by rafacv23",
+      },
+    })
     console.log("Reddit API response:", res)
 
     if (!res.ok) {
