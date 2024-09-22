@@ -6,6 +6,8 @@
 
 Redditly is an open-source Reddit client designed to provide a seamless experience for exploring your favorite subreddits. Built as part of the roadmap.sh project, this application enables users to discover, engage, and share content effortlessly.
 
+It has been created for [https://roadmap.sh/projects/reddit-client](https://roadmap.sh/projects/reddit-client) portfolio projects.
+
 ## Deployed URL
 
 You can check out the live version of Redditly at: [https://redditly.vercel.app](https://redditly.vercel.app)
