@@ -20,11 +20,16 @@ export default async function Content({ subreddit }: { subreddit: string }) {
     }
 
     const data = await response.json()
-    redditPosts = data
+
+    // Check if data is an array
+    if (Array.isArray(data)) {
+      redditPosts = data
+    } else {
+      console.error("Unexpected data format:", data)
+    }
   } catch (error) {
     console.error("Error fetching data:", error)
   }
-
   return (
     <div className="flex-1 lg:p-4 w-full bg-base-200">
       <ul className="space-y-4">
