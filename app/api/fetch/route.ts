@@ -7,7 +7,7 @@ export const revalidate = 60
 
 export async function GET(request: Request) {
   // Check for environment variables
-  if (!process.env.NEXT_REDDIT_PUBLIC || !process.env.NEXT_REDDIT_SECRET) {
+  if (!process.env.REDDIT_PUBLIC || !process.env.REDDIT_SECRET) {
     return NextResponse.json(
       { error: "Reddit client credentials are not configured." },
       { status: 500 }
@@ -15,8 +15,8 @@ export async function GET(request: Request) {
   }
 
   const reddit = createRedditClient({
-    clientId: process.env.NEXT_REDDIT_PUBLIC,
-    secret: process.env.NEXT_REDDIT_SECRET,
+    clientId: process.env.REDDIT_PUBLIC,
+    secret: process.env.REDDIT_SECRET,
   })
 
   const { searchParams } = new URL(request.url)
