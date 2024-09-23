@@ -1,3 +1,5 @@
+import { SITE_URL } from "@/site/config"
+
 export function formatSearchValue(searchValue: string): string {
   return searchValue.replace(/\s+/g, "").toLowerCase()
 }
@@ -31,4 +33,10 @@ export function formatDate(utcSeconds: number): string {
     const years = Math.floor(diffInSeconds / secondsInYear)
     return `${years} year${years !== 1 ? "s" : ""} ago`
   }
+}
+
+export async function fetchSubreddit(subreddit: string) {
+  const res = await fetch(`${SITE_URL}/api/fetch?subreddit=${subreddit}`)
+  if (!res.ok) return undefined
+  return res.json()
 }
