@@ -3,7 +3,7 @@ import Drawer from "@/components/ui/Drawer"
 import { SITE_NAME } from "@/site/config"
 import Link from "next/link"
 
-export default function Header() {
+export default function Header({ subreddit }: { subreddit: string }) {
   return (
     <div className="navbar bg-base-200 p-4 sticky top-0 z-50">
       <div className="flex-1">
@@ -13,7 +13,7 @@ export default function Header() {
             {SITE_NAME}
           </Link>
         </h1>
-        <Drawer display="mobile" />
+        <Drawer subreddit={subreddit} display="mobile" />
       </div>
       <div className="flex-none gap-2">
         <SearchBar />

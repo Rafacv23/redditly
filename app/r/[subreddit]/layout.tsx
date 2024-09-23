@@ -4,6 +4,7 @@ import { Metadata } from "next"
 
 type Props = {
   params: { subreddit: string }
+  children: React.ReactNode
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -32,14 +33,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function SubredditLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function SubredditLayout({ children, params }: Props) {
+  const subreddit = params.subreddit
+
   return (
     <>
-      <Header />
+      <Header subreddit={subreddit} />
       <div className="flex flex-1">{children}</div>
     </>
   )
