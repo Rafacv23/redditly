@@ -10,7 +10,7 @@ export default async function Subreddit({
 }) {
   return (
     <Suspense fallback={<Loading />}>
-      <Nav />
+      <Nav subreddit={params.subreddit} />
       <Content subreddit={params.subreddit} />
     </Suspense>
   )
