@@ -3,25 +3,28 @@
 import { useRedditStore } from "@/store/store"
 import { Heart, HeartOff, RefreshCcw } from "lucide-react"
 import Link from "next/link"
-import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
-export default function DrawerContent() {
+export default function DrawerContent({
+  subredditData,
+  subreddit,
+}: {
+  subredditData: object
+  subreddit: string
+}) {
   const favPosts = useRedditStore((state) => state.favPosts)
   const favSubreddits = useRedditStore((state) => state.favSubreddits)
   const addFavSubreddit = useRedditStore((state) => state.addFavSubreddit)
-  const params = useParams<{ subreddit: string }>()
-  const subreddit = params.subreddit
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null)
   const addRecentSubreddit = useRedditStore((state) => state.addRecentSubreddit)
   const recentSubreddits = useRedditStore((state) => state.recentSubreddits)
 
   // Add subreddit to recentSubreddits whenever it changes
   useEffect(() => {
-    if (subreddit) {
+    if (subredditData) {
       addRecentSubreddit(subreddit)
     }
-  }, [subreddit, addRecentSubreddit])
+  }, [subreddit, addRecentSubreddit, subredditData])
 
   const handleReload = () => {
     window.location.reload()
