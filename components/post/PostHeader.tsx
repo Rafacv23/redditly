@@ -46,7 +46,7 @@ export default function PostHeader({
         </Link>
         {post.stickied ? <Pin color="oklch(var(--p))" /> : null}
       </h2>
-      {post.link_flair_richtext.length > 0 && (
+      {post.link_flair_richtext?.length > 0 && (
         <div className="mt-2 flex">
           {post.link_flair_richtext.map((flair, index) => (
             <span
