@@ -1,7 +1,16 @@
 import { SITE_NAME } from "@/site/config"
 import DrawerContent from "./DrawerContent"
+import { fetchSubreddit } from "@/lib/utils"
 
-export default function Drawer({ display }: { display: "desktop" | "mobile" }) {
+export default async function Drawer({
+  display,
+  subreddit,
+}: {
+  display: "desktop" | "mobile"
+  subreddit: string
+}) {
+  const subredditData = await fetchSubreddit(subreddit)
+
   return (
     <>
       {display === "mobile" ? (
@@ -22,7 +31,10 @@ export default function Drawer({ display }: { display: "desktop" | "mobile" }) {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <DrawerContent />
+            <DrawerContent
+              subreddit={subreddit}
+              subredditData={subredditData}
+            />
           </div>
         </div>
       ) : (
@@ -42,7 +54,10 @@ export default function Drawer({ display }: { display: "desktop" | "mobile" }) {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <DrawerContent />
+            <DrawerContent
+              subreddit={subreddit}
+              subredditData={subredditData}
+            />
           </div>
         </div>
       )}
