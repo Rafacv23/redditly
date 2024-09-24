@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Redditly | Open Source Reddit Client",
     description: `${SITE_DESCRIPTION} Discover and explore your favorite subreddits effortlessly with Redditly.`,
-    url: SITE_URL, // Update with your actual URL
+    url: SITE_URL,
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/favicon.ico`, // Replace with an actual image URL
+        url: `${SITE_URL}/favicon.ico`,
         alt: "Redditly - Explore Subreddits",
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Redditly | Open Source Reddit Client",
     description: `${SITE_DESCRIPTION} Discover and explore your favorite subreddits effortlessly with Redditly.`,
-    site: "@rafacanosa", // Replace with your Twitter handle
+    site: "@rafacanosa",
   },
   robots: {
     index: true,

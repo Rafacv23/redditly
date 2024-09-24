@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: `${subreddit} | ${SITE_NAME}`,
       description: `Explore the latest discussions, posts, and insights from the ${subreddit} subreddit. Join the community and engage with fellow fans!`,
-      site: `@rafacanosa`, // Replace with your Twitter handle
+      site: `@rafacanosa`,
     },
     robots: {
       index: true,
